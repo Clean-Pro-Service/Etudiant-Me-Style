@@ -1,12 +1,4 @@
 
-/*
- * Étudiant Mé Style — Configuration Firebase
- */
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyDCxU6Jo-7S-1EZLLeq38ttVV78dqP30QY",
   authDomain: "etudiant-me-style.firebaseapp.com",
@@ -17,13 +9,11 @@ const firebaseConfig = {
   measurementId: "G-W23T2YD677"
 };
 
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-// Adresse e-mail du compte administrateur Firebase.
-// Remplace cette valeur par l'adresse utilisée pour créer ton compte.
+// Remplace par l'adresse e-mail de ton compte
+// administrateur créé dans Firebase Authentication.
 const ADMIN_EMAIL = "TON_EMAIL_ADMIN";
 
-export { app, auth, db, ADMIN_EMAIL };
+// Numéro WhatsApp de la boutique, avec l'indicatif pays.
+const WHATSAPP_NUMBER = "22898207231";
+
+export { firebaseConfig, ADMIN_EMAIL, WHATSAPP_NUMBER };
