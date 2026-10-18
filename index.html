@@ -15,7 +15,7 @@
       <span class="brand-mark">ÉM</span>
       <span><strong>Étudiant Mé Style</strong><small>TON CAMPUS, TON STYLE.</small></span>
     </a>
-    <button class="cart-button" id="open-cart" aria-label="Ouvrir le panier">Panier <span id="cart-count">0</span></button>
+    <div class="header-actions"><a class="admin-link" href="admin.html">Admin</a><button class="cart-button" id="open-cart" aria-label="Ouvrir le panier">Panier <span id="cart-count">0</span></button></div>
   </header>
 
   <main>
@@ -53,7 +53,7 @@
         <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Rechercher un article…" aria-label="Rechercher un article"></label>
       </div>
       <div class="product-grid" id="product-grid"></div>
-      <p class="demo-note">Catalogue de démonstration : prix et articles à confirmer avec les vendeurs avant toute commande.</p>
+      <p class="demo-note" id="catalogue-note">Catalogue de démonstration : remplace les exemples par tes vrais produits dans l'espace administrateur.</p>
     </section>
 
     <section class="look-section">
@@ -91,6 +91,6 @@
     <div class="cart-bottom"><div class="total-line"><span>Total estimé</span><strong id="cart-total">0 FCFA</strong></div><p class="muted tiny">Le prix, la taille, le stock et la livraison seront confirmés avec le vendeur.</p><button id="whatsapp-order" class="button button-green full">Commander sur WhatsApp ↗</button></div>
   </aside>
   <div id="toast" class="toast" role="status"></div>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
