@@ -11,7 +11,7 @@ const firebaseConfig = {
 
 // Remplace par l'adresse e-mail de ton compte
 // administrateur créé dans Firebase Authentication.
-const ADMIN_EMAIL = "TON_EMAIL_ADMIN";
+const ADMIN_EMAIL = "tameclor@gmail.com";
 
 // Numéro WhatsApp de la boutique, avec l'indicatif pays.
 const WHATSAPP_NUMBER = "22898207231";
