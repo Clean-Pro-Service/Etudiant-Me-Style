@@ -1,16 +1,29 @@
-// Étudiant Mé Style : configuration Firebase
-// Remplace les valeurs par celles de TON projet Firebase (console.firebase.google.com).
-// Ne mets jamais de clé privée de compte de service dans ce fichier.
-export const firebaseConfig = {
-  apiKey: "COLLE_ICI_TON_API_KEY",
-  authDomain: "TON-PROJET.firebaseapp.com",
-  projectId: "TON-PROJET",
-  storageBucket: "TON-PROJET.firebasestorage.app",
-  messagingSenderId: "TON_MESSAGING_SENDER_ID",
-  appId: "TON_APP_ID"
+
+/*
+ * Étudiant Mé Style — Configuration Firebase
+ */
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDCxU6Jo-7S-1EZLLeq38ttVV78dqP30QY",
+  authDomain: "etudiant-me-style.firebaseapp.com",
+  projectId: "etudiant-me-style",
+  storageBucket: "etudiant-me-style.firebasestorage.app",
+  messagingSenderId: "40686369187",
+  appId: "1:40686369187:web:e423b2c4023ade7fec4216",
+  measurementId: "G-W23T2YD677"
 };
 
-// Mets ici l'adresse e-mail du compte administrateur que tu auras créé dans Firebase Authentication.
-// Seule cette adresse pourra ouvrir l'espace admin dans l'interface.
-export const ADMIN_EMAIL = "TON_EMAIL_ADMIN";
-export const WHATSAPP_NUMBER = "22898207231";
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Adresse e-mail du compte administrateur Firebase.
+// Remplace cette valeur par l'adresse utilisée pour créer ton compte.
+const ADMIN_EMAIL = "TON_EMAIL_ADMIN";
+
+export { app, auth, db, ADMIN_EMAIL };
