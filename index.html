@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="Étudiant Mé Style : looks campus, vêtements, chaussures, accessoires et beauté à Lomé.">
+  <title>Étudiant Mé Style — Ton campus, ton style</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">LA MODE DU CAMPUS • UNIVERSITÉ DE LOMÉ</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Étudiant Mé Style accueil">
+      <span class="brand-mark">ÉM</span>
+      <span><strong>Étudiant Mé Style</strong><small>TON CAMPUS, TON STYLE.</small></span>
+    </a>
+    <button class="cart-button" id="open-cart" aria-label="Ouvrir le panier">Panier <span id="cart-count">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">LA COLLECTION CAMPUS</p>
+        <h1>Ton style.<br><em>Ta signature.</em></h1>
+        <p>Découvre des looks pour les cours, les sorties et tous les jours. Choisis tes pièces, puis commande simplement sur WhatsApp.</p>
+        <a class="button button-dark" href="#boutique">Découvrir la boutique <span>↘</span></a>
+        <div class="hero-note"><span class="dot"></span> Pensé pour les étudiants de Lomé</div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-sticker">CAMPUS<br>LOOKS<br><b>2026</b></div>
+        <div class="hero-shape shape-one"></div><div class="hero-shape shape-two"></div>
+        <div class="hero-caption">SIMPLE. FRAIS. TOI.</div>
+      </div>
+    </section>
+
+    <section class="categories section-wrap">
+      <div class="section-heading">
+        <div><p class="eyebrow">EXPLORE TON UNIVERS</p><h2>Tu cherches quoi ?</h2></div>
+      </div>
+      <div class="category-list" id="category-list">
+        <button class="category-chip active" data-category="Tout">Tout voir</button>
+        <button class="category-chip" data-category="Vêtements">Vêtements</button>
+        <button class="category-chip" data-category="Chaussures">Chaussures</button>
+        <button class="category-chip" data-category="Accessoires">Accessoires</button>
+        <button class="category-chip" data-category="Beauté & mèches">Beauté & mèches</button>
+      </div>
+    </section>
+
+    <section class="section-wrap shop-section" id="boutique">
+      <div class="section-heading shop-heading">
+        <div><p class="eyebrow">SÉLECTION DU MOMENT</p><h2>Les essentiels du campus</h2><p class="muted">Des idées pour composer ton propre outfit.</p></div>
+        <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Rechercher un article…" aria-label="Rechercher un article"></label>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+      <p class="demo-note">Catalogue de démonstration : prix et articles à confirmer avec les vendeurs avant toute commande.</p>
+    </section>
+
+    <section class="look-section">
+      <div class="section-wrap look-inner">
+        <div><p class="eyebrow">TROUVE TON OUTFIT</p><h2>Un département.<br><em>Des milliers de styles.</em></h2><p>Une filière peut t'inspirer, mais ton style reste le tien. Choisis l'ambiance qui te ressemble.</p></div>
+        <div class="look-options">
+          <button class="look-option" data-look="Chic & soigné"><span>01</span><b>Chic & soigné</b><small>Chemises, pantalons, mocassins</small><span class="arrow">↗</span></button>
+          <button class="look-option" data-look="Streetwear"><span>02</span><b>Streetwear</b><small>T-shirts, jeans, baskets</small><span class="arrow">↗</span></button>
+          <button class="look-option" data-look="Minimal & confortable"><span>03</span><b>Minimal & confortable</b><small>Basiques faciles à associer</small><span class="arrow">↗</span></button>
+          <button class="look-option" data-look="Beauté & coiffure"><span>04</span><b>Beauté & coiffure</b><small>Mèches et accessoires</small><span class="arrow">↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="how section-wrap">
+      <p class="eyebrow">C'EST SIMPLE</p><h2>Ton prochain look en 3 étapes</h2>
+      <div class="steps">
+        <article><span>1</span><h3>Explore</h3><p>Parcours les articles et trouve l'inspiration.</p></article>
+        <article><span>2</span><h3>Compose</h3><p>Ajoute au panier les pièces qui te plaisent.</p></article>
+        <article><span>3</span><h3>Commande</h3><p>Envoie ta sélection par WhatsApp pour confirmer la disponibilité.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-mark">ÉM</span><div><strong>Étudiant Mé Style</strong><small>La mode du campus, à ta façon.</small></div></div>
+    <p>Projet en lancement à Lomé, Togo.</p>
+    <small>© <span id="year"></span> Étudiant Mé Style. Catalogue de démonstration.</small>
+  </footer>
+
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Ton panier" aria-hidden="true">
+    <div class="cart-head"><div><p class="eyebrow">TA SÉLECTION</p><h2>Mon panier</h2></div><button id="close-cart" class="close-button" aria-label="Fermer le panier">×</button></div>
+    <div id="cart-items" class="cart-items"><p class="empty-cart">Ton panier est vide pour le moment.</p></div>
+    <div class="cart-bottom"><div class="total-line"><span>Total estimé</span><strong id="cart-total">0 FCFA</strong></div><p class="muted tiny">Le prix, la taille, le stock et la livraison seront confirmés avec le vendeur.</p><button id="whatsapp-order" class="button button-green full">Commander sur WhatsApp ↗</button></div>
+  </aside>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
