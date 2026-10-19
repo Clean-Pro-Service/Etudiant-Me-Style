@@ -57,4 +57,4 @@ form.addEventListener("submit",async e=>{
   else{await addDoc(collection(db,"products"),{...data,createdAt:serverTimestamp()});message("Produit ajouté ! Il apparaîtra sur la boutique publique.","success")}
   resetForm();
  }catch(err){message("Enregistrement impossible. Vérifie que Firestore est créé et que ses règles autorisent uniquement ton compte administrateur à écrire.","error")}
-});
+}); 
