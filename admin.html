@@ -1,30 +1,159 @@
+
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171717"><title>Administration — Étudiant Mé Style</title><link rel="stylesheet" href="style.css"></head>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <title>Administration — Étudiant Mé Style</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body class="admin-page">
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ÉM</span><span><strong>Étudiant Mé Style</strong><small>ESPACE ADMINISTRATEUR</small></span></a><a class="admin-link" href="index.html">Voir la boutique ↗</a></header>
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">ÉM</span>
+    <span>
+      <strong>Étudiant Mé Style</strong>
+      <small>ESPACE ADMINISTRATEUR</small>
+    </span>
+  </a>
+  <a class="admin-link" href="index.html">Voir la boutique ↗</a>
+</header>
+
 <main class="admin-main">
-  <div class="admin-top"><div><p class="eyebrow">GESTION DE LA BOUTIQUE</p><h1 style="font-size:clamp(30px,5vw,42px);margin:0">Ton espace admin</h1><p class="admin-subtitle">Ajoute, modifie ou masque des produits sans réécrire le code du site.</p></div><button id="logout" class="button button-light hidden">Déconnexion</button></div>
-  <div id="notice" class="admin-message">Configure Firebase une seule fois pour que les produits ajoutés ici apparaissent chez tous les visiteurs.</div>
-  <section id="login-card" class="admin-card admin-login"><h2>Connexion administrateur</h2><p class="admin-subtitle">Utilise l'adresse e-mail que tu as autorisée dans la configuration du site.</p><form id="login-form" class="admin-form"><label>E-mail administrateur<input id="email" type="email" required autocomplete="username" placeholder="toi@exemple.com"></label><label>Mot de passe<input id="password" type="password" required autocomplete="current-password" minlength="6" placeholder="Mot de passe Firebase"></label><button class="button button-dark full" type="submit">Se connecter</button></form></section>
+  <div class="admin-top">
+    <div>
+      <p class="eyebrow">GESTION DE LA BOUTIQUE</p>
+      <h1 style="font-size:clamp(30px,5vw,42px);margin:0">Ton espace admin</h1>
+      <p class="admin-subtitle">Gère tes articles, tes kits et tes outfits.</p>
+    </div>
+    <button id="logout" class="button button-light hidden">Déconnexion</button>
+  </div>
+
+  <div id="notice" class="admin-message">
+    Connecte-toi pour gérer la boutique.
+  </div>
+
+  <section id="login-card" class="admin-card admin-login">
+    <h2>Connexion administrateur</h2>
+    <p class="admin-subtitle">Utilise ton adresse administrateur Firebase.</p>
+    <form id="login-form" class="admin-form">
+      <label>E-mail administrateur
+        <input id="email" type="email" required autocomplete="username">
+      </label>
+      <label>Mot de passe
+        <input id="password" type="password" required minlength="6" autocomplete="current-password">
+      </label>
+      <button class="button button-dark full" type="submit">Se connecter</button>
+    </form>
+  </section>
+
   <div id="admin-content" class="hidden">
-    <section class="admin-card"><h2 id="form-title">Ajouter un produit</h2>
+    <section class="admin-card">
+      <h2>Que veux-tu gérer ?</h2>
+      <p class="admin-subtitle">Choisis une catégorie avant de créer un élément.</p>
+      <div class="admin-actions">
+        <button type="button" class="button button-dark" data-admin-mode="product">Produits</button>
+        <button type="button" class="button button-dark" data-admin-mode="kit">Kits étudiants</button>
+        <button type="button" class="button button-dark" data-admin-mode="outfit">Outfits</button>
+      </div>
+      <p class="muted">Les produits existants restent dans Firebase. Les nouveaux éléments seront enregistrés dans la collection products avec leur type.</p>
+    </section>
+
+    <section class="admin-card">
+      <h2 id="form-title">Ajouter un produit</h2>
       <form id="product-form" class="admin-form">
-        <label>Nom du produit *<input id="p-name" required maxlength="90" placeholder="Ex. Chemise blanche campus"></label>
-        <label>Catégorie *<select id="p-category" required><option>Vêtements</option><option>Chaussures</option><option>Accessoires</option><option>Beauté & mèches</option></select></label>
-        <label>Prix en FCFA *<input id="p-price" type="number" min="0" step="50" required placeholder="Ex. 4500"></label>
-        <label>Style / collection<select id="p-style"><option>Chic & soigné</option><option>Streetwear</option><option>Minimal & confortable</option><option>Beauté & coiffure</option></select></label>
-        <label>Tailles / couleurs<input id="p-options" maxlength="180" placeholder="Ex. S, M, L — noir, blanc"></label>
-        <label>Stock disponible<input id="p-stock" type="number" min="0" step="1" placeholder="Ex. 5"></label>
-        <label class="wide">Description<textarea id="p-description" maxlength="800" placeholder="Matière, coupe, longueur, conseils d'association, détails utiles…"></textarea></label>
-        <label class="wide">Lien direct de la photo (URL https://)<input id="p-image" type="url" placeholder="https://..."></label>
-        <label>Étiquette courte<input id="p-tag" maxlength="30" placeholder="Nouveau, populaire…"></label>
-        <label>Emoji de secours<input id="p-emoji" maxlength="8" value="🛍️"></label>
-        <label class="wide" style="flex-direction:row;align-items:center"><input id="p-active" type="checkbox" checked style="width:auto"> Publier ce produit dans la boutique</label>
-        <div class="wide admin-actions"><button class="button button-dark" type="submit" id="save-product">Enregistrer le produit</button><button class="button button-light hidden" type="button" id="cancel-edit">Annuler la modification</button></div>
+
+        <label>Nom *
+          <input id="p-name" required maxlength="90" placeholder="Ex. Outfit campus élégant">
+        </label>
+
+        <label>Type *
+          <select id="p-type">
+            <option value="product">Produit classique</option>
+            <option value="kit">Kit étudiant</option>
+            <option value="outfit">Outfit publié</option>
+          </select>
+        </label>
+
+        <label>Catégorie *
+          <select id="p-category" required>
+            <option>Vêtements</option>
+            <option>Chaussures</option>
+            <option>Accessoires</option>
+            <option>Beauté & mèches</option>
+          </select>
+        </label>
+
+        <label>Prix en FCFA *
+          <input id="p-price" type="number" min="0" step="50" required>
+        </label>
+
+        <label>Style / collection
+          <select id="p-style">
+            <option>Chic & soigné</option>
+            <option>Streetwear</option>
+            <option>Minimal & confortable</option>
+            <option>Beauté & coiffure</option>
+          </select>
+        </label>
+
+        <label>Tailles / couleurs
+          <input id="p-options" maxlength="180" placeholder="S, M, L — noir, blanc">
+        </label>
+
+        <label>Stock disponible
+          <input id="p-stock" type="number" min="0" step="1">
+        </label>
+
+        <label class="wide">Description
+          <textarea id="p-description" maxlength="800" placeholder="Description de l'article, du kit ou du look"></textarea>
+        </label>
+
+        <label class="wide">Photo principale — URL HTTPS
+          <input id="p-image" type="url" placeholder="https://...">
+        </label>
+
+        <label class="wide">Autres photos — une URL par ligne
+          <textarea id="p-images" rows="4" placeholder="https://photo-2.jpg&#10;https://photo-3.jpg"></textarea>
+        </label>
+
+        <label class="wide">Identifiants des articles de l'outfit
+          <textarea id="p-item-ids" rows="3" placeholder="À utiliser pour associer des articles à un outfit"></textarea>
+        </label>
+
+        <label>Étiquette courte
+          <input id="p-tag" maxlength="30" placeholder="Nouveau, campus...">
+        </label>
+
+        <label>Emoji de secours
+          <input id="p-emoji" maxlength="8" value="🛍️">
+        </label>
+
+        <label class="wide" style="flex-direction:row;align-items:center">
+          <input id="p-active" type="checkbox" checked style="width:auto">
+          Publier cet élément dans la boutique
+        </label>
+
+        <div class="wide admin-actions">
+          <button class="button button-dark" type="submit" id="save-product">Enregistrer</button>
+          <button class="button button-light hidden" type="button" id="cancel-edit">Annuler</button>
+        </div>
       </form>
     </section>
-    <section class="admin-card"><div class="admin-top"><h2>Mes produits</h2><span id="product-count" class="muted">0 produit</span></div><div id="admin-products"><p class="muted">Chargement du catalogue…</p></div></section>
+
+    <section class="admin-card">
+      <div class="admin-top">
+        <h2>Catalogue administrateur</h2>
+        <span id="product-count" class="muted">0 élément</span>
+      </div>
+      <div id="admin-products">
+        <p class="muted">Chargement du catalogue…</p>
+      </div>
+    </section>
   </div>
 </main>
+
 <script type="module" src="admin.js"></script>
-</body></html>
+</body>
+</html>
